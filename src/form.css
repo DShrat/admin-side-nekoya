@@ -1,3 +1,7 @@
+.bungkusForm{
+    display: flex;
+    justify-content: center;
+}
 .formBox{
     padding: 50px;
 }
@@ -6,6 +10,12 @@
     font-size: 2vw;
     font-weight: bold;
     padding: 20px;
+    color: white;
+    background-color: brown;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .isiForm{
@@ -16,9 +26,13 @@
 
 .namaRow{
     font-size: 1vw;
+    color: white;
 }
 
 .tombol{
     width: 900px;
-    height: 20px;
+    height: auto;
+    background-color: darkred;
+    color: white;
+    font-size: 1vw;
 }

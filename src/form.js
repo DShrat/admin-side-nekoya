@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Row, Col} from 'react-bootstrap';
 import './form.css';
+import logo from './assets/logo.jpg'
 
 
 const ProductForm = () => {
@@ -10,6 +11,7 @@ const ProductForm = () => {
     price: '',
     description: '',
     image: null,
+    stock: '',
   });
 
   const handleChange = (e) => {
@@ -34,6 +36,7 @@ const ProductForm = () => {
     formData.append('price', product.price);
     formData.append('description', product.description);
     formData.append('image', product.image);
+    formData.append('stock', product.stock);
 
     try {
       // Ganti URL_API dengan URL API yang sesuai
@@ -52,6 +55,7 @@ const ProductForm = () => {
         price: '',
         description: '',
         image: null,
+        stock: '',
       });
     } catch (error) {
       console.error('Gagal menyimpan data', error);
@@ -65,7 +69,12 @@ const ProductForm = () => {
                 <form onSubmit={handleSubmit}>
                     <div className='formBox'>
                         <Row className='titleForm'>
-                            ADMIN SIDE NEKOYA
+                            <Col style={{marginRight: '10px'}}>
+                                ADMIN SIDE NEKOYA
+                            </Col>
+                            <Col>
+                                <img style={{height:'100px'}} src={logo} alt="Logo" />
+                            </Col>
                         </Row>
                         <Row className='isiForm'>
                            <label>
@@ -120,13 +129,30 @@ const ProductForm = () => {
                         <Row className='isiForm'>
                             <label>
                                 <Col className='namaRow'>
+                                    Stock:
+                                </Col>
+                                <Col>
+                                    <textarea
+                                    name="stock"
+                                    value={product.stock}
+                                    onChange={handleChange}
+                                    style={{width:'900px', height:'20px', fontSize:'15pt'}}
+                                    />
+                                </Col>
+                            </label>
+                        </Row>
+                        <br />
+                        <Row className='isiForm'>
+                            <label>
+                                <Col className='namaRow'>
                                     Gambar:
                                 </Col>
                                 <Col>
                                     <input 
                                     type="file" 
                                     name="image" 
-                                    onChange={handleChange} />
+                                    onChange={handleChange} 
+                                    style={{color: 'white'}}/>
                                 </Col>
                             </label>  
                         </Row>
